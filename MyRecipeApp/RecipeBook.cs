@@ -9,13 +9,13 @@ namespace MyRecipeApp
 {
     public class RecipeBook
     {
-        // Список рецептов
+        //Список рецептов
         private List<Recipe> recipes;
 
-        // Конструктор: инициализирует список
+        //Конструктор: инициализирует список
         public RecipeBook()
         {
-            recipes = new List<Recipe>(); // создаем пустой список рецептов
+            recipes = new List<Recipe>(); //создаем пустой список рецептов
         }
 
         // Метод для добавления рецепта в список

@@ -45,6 +45,7 @@
             this.listBoxRecipes.Name = "listBoxRecipes";
             this.listBoxRecipes.Size = new System.Drawing.Size(776, 284);
             this.listBoxRecipes.TabIndex = 0;
+            this.listBoxRecipes.SelectedIndexChanged += new System.EventHandler(this.recipeListBox_SelectedIndexChanged);
             // 
             // buttonAdd
             // 
@@ -77,7 +78,7 @@
             this.buttonSave.TabIndex = 3;
             this.buttonSave.Text = "Сохранение рецептов";
             this.buttonSave.UseVisualStyleBackColor = true;
-            
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // buttonLoad
             // 
@@ -88,7 +89,7 @@
             this.buttonLoad.TabIndex = 4;
             this.buttonLoad.Text = "Загрузка рецептов из файла";
             this.buttonLoad.UseVisualStyleBackColor = true;
-           
+            this.buttonLoad.Click += new System.EventHandler(this.buttonLoad_Click);
             // 
             // labelHeaderText
             // 

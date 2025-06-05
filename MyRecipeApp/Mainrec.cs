@@ -18,10 +18,10 @@ namespace MyRecipeApp
         public Mainrec()
         {
             InitializeComponent();
-            recipeBook = new RecipeBook(); // инициализируем книгу рецептов
+            recipeBook = new RecipeBook(); //инициализируем книгу рецептов
         }
 
-        // Обновляет содержимое ListBox на форме
+        //Обновляет содержимое ListBox на форме
         private void RefreshRecipeList()
         {
             listBoxRecipes.Items.Clear(); // очищаем текущий список на форме
@@ -96,5 +96,20 @@ namespace MyRecipeApp
                 MessageBox.Show("Рецепты успешно загружены.", "Загрузка", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void recipeListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Recipe selectedRecipe = listBoxRecipes.SelectedItem as Recipe;
+            if (selectedRecipe != null && selectedRecipe.)
+            {
+                MessageBox.Show(
+                    $"Название: {selectedRecipe.Name}\n\nИнгредиенты:\n{selectedRecipe.Ingredients}\n\nИнструкция:\n{selectedRecipe.Instructions}",
+                    "Подробности рецепта",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+            }
+        }
+
     }
 }
