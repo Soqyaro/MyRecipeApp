@@ -14,54 +14,64 @@ namespace MyRecipeApp
     {
 
         private RecipeBook recipeBook;
+        private bool suppressSelectionEvent = false;
+        private string currentFilePath = null;
 
         public Mainrec()
         {
             InitializeComponent();
-            recipeBook = new RecipeBook(); //инициализируем книгу рецептов
+            recipeBook = new RecipeBook(); 
         }
 
-        //Обновляет содержимое ListBox на форме
+        //Обновление ListBox
         private void RefreshRecipeList()
         {
-            listBoxRecipes.Items.Clear(); // очищаем текущий список на форме
-                                         // Добавляем каждый рецепт из книги в ListBox
+            suppressSelectionEvent = true;//откл реакцию листбокса 
+            listBoxRecipes.Items.Clear(); //очищаем текущий список
+                                         //добавляем рецепт из книги в ListBox
             foreach (Recipe recipe in recipeBook.GetAllRecipes())
             {
-                listBoxRecipes.Items.Add(recipe); // добавляем объект Recipe; вызовется его ToString()
+                listBoxRecipes.Items.Add(recipe);
             }
+            suppressSelectionEvent = false;
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            // Создаем и показываем форму добавления рецепта
+            //создаем и показываем форму добавления рецепта
             AddRecipeForm addForm = new AddRecipeForm();
-            if (addForm.ShowDialog() == DialogResult.OK) // если пользователь нажал OK
+            if (addForm.ShowDialog() == DialogResult.OK)
             {
-                // Извлекаем созданный рецепт из формы
+                //Извлекаем созданный(сущ) рецепт из формы
                 Recipe newRecipe = addForm.NewRecipe;
-                // Добавляем рецепт в книгу
+                //Добавляем рецепт в книгу
                 recipeBook.AddRecipe(newRecipe);
-                // Обновляем отображение списка рецептов
+                //обновляем отображение списка рецептов
                 RefreshRecipeList();
             }
-            // Если пользователь нажал Отмена, просто ничего не делаем
+            //если пользователь нажал Отмена ниче не делаем
         }
 
         private void buttonRemove_Click(object sender, EventArgs e)
         {
-            // Получаем выделенный элемент в ListBox
+            //Получаем выделенный элемент в ListBox
             Recipe selectedRecipe = listBoxRecipes.SelectedItem as Recipe;
             if (selectedRecipe != null)
             {
-                // Удаляем его из книги рецептов
+                //удаляем его из книги рецептов
                 recipeBook.RemoveRecipe(selectedRecipe);
-                // Обновляем список
+                //обновляем список
                 RefreshRecipeList();
+
+                //Добавил
+                if(!string.IsNullOrEmpty(currentFilePath))
+                {
+                    recipeBook.SaveToFile(currentFilePath);
+                }
             }
             else
             {
-                // Если ничего не выбрано, можно показать сообщение (опционально)
+                //если ничего не выбрано
                 MessageBox.Show("Пожалуйста, выберите рецепт для удаления.",
                                 "Удалить рецепт", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -75,41 +85,51 @@ namespace MyRecipeApp
             saveFileDialog.Title = "Сохранить рецепты в файл";
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
+                //добавил карент файл пас
+                currentFilePath = saveFileDialog.FileName;
                 // Сохраняем рецепты в выбранный файл
-                recipeBook.SaveToFile(saveFileDialog.FileName);
+                recipeBook.SaveToFile(currentFilePath);
                 MessageBox.Show("Рецепты успешно сохранены.", "Сохранение", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         
         private void buttonLoad_Click(object sender, EventArgs e)
         {
-            // Открываем диалог для выбора файла загрузки
+            //открываем диалог для выбора файла загрузки
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*";
             openFileDialog.Title = "Загрузить рецепты из файла";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                // Загружаем рецепты из выбранного файла
-                recipeBook.LoadFromFile(openFileDialog.FileName);
-                // Обновляем список на форме
+                //добавил карент файл пас
+                currentFilePath = openFileDialog.FileName;
+                //загружаем рецепты из выбранного файла
+                recipeBook.LoadFromFile(currentFilePath);
+                //обновляем список на форме
                 RefreshRecipeList();
                 MessageBox.Show("Рецепты успешно загружены.", "Загрузка", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            //Добавил
+            
+            recipeBook.LoadFromFile(currentFilePath);
         }
 
-        private void recipeListBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBoxRecipes_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            Recipe selectedRecipe = listBoxRecipes.SelectedItem as Recipe;
-            if (selectedRecipe != null && selectedRecipe.)
+            int index = listBoxRecipes.IndexFromPoint(e.Location);
+            if (index != ListBox.NoMatches)
             {
-                MessageBox.Show(
-                    $"Название: {selectedRecipe.Name}\n\nИнгредиенты:\n{selectedRecipe.Ingredients}\n\nИнструкция:\n{selectedRecipe.Instructions}",
+                Recipe selectedRecipe = listBoxRecipes.Items[index] as Recipe;
+                if (selectedRecipe != null)
+                {
+                    MessageBox.Show(
+                        $"Название: {selectedRecipe.Name}\n\nИнгредиенты:\n{selectedRecipe.Ingredients}\n\nИнструкция:\n{selectedRecipe.Instructions}",
                     "Подробности рецепта",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
-                );
+                    );
+                }
             }
         }
-
     }
 }
