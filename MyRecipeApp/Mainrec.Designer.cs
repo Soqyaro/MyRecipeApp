@@ -128,7 +128,7 @@
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.listBoxRecipes);
             this.Name = "Mainrec";
-            this.Text = "Мейнрес";
+            this.Text = "Список ваших рецептов";
             this.ResumeLayout(false);
             this.PerformLayout();
 

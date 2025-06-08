@@ -28,10 +28,10 @@ namespace MyRecipeApp
         {
             suppressSelectionEvent = true;//откл реакцию листбокса 
             listBoxRecipes.Items.Clear(); //очищаем текущий список
-                                         //добавляем рецепт из книги в ListBox
+                                         
             foreach (Recipe recipe in recipeBook.GetAllRecipes())
             {
-                listBoxRecipes.Items.Add(recipe);
+                listBoxRecipes.Items.Add(recipe);//добавляем рецепт из книги в ListBox
             }
             suppressSelectionEvent = false;
         }
@@ -54,7 +54,7 @@ namespace MyRecipeApp
 
         private void buttonRemove_Click(object sender, EventArgs e)
         {
-            //Получаем выделенный элемент в ListBox
+            //получаем выделенный элемент в ListBox
             Recipe selectedRecipe = listBoxRecipes.SelectedItem as Recipe;
             if (selectedRecipe != null)
             {
@@ -87,7 +87,7 @@ namespace MyRecipeApp
             {
                 //добавил карент файл пас
                 currentFilePath = saveFileDialog.FileName;
-                // Сохраняем рецепты в выбранный файл
+                //сохраняем рецепты в выбранный файл
                 recipeBook.SaveToFile(currentFilePath);
                 MessageBox.Show("Рецепты успешно сохранены.", "Сохранение", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -110,7 +110,6 @@ namespace MyRecipeApp
                 MessageBox.Show("Рецепты успешно загружены.", "Загрузка", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             //Добавил
-            
             recipeBook.LoadFromFile(currentFilePath);
         }
 

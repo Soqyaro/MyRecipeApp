@@ -143,7 +143,7 @@
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.labelNameHeader);
             this.Name = "AddRecipeForm";
-            this.Text = "AddRecipeForm";
+            this.Text = "Добавление нового рецепта";
             this.ResumeLayout(false);
             this.PerformLayout();
 

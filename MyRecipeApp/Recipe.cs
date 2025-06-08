@@ -8,9 +8,9 @@ namespace MyRecipeApp
 {
     public class Recipe
     {
-        public string Name;
-        public string Ingredients; 
-        public string Instructions; 
+        public string Name { get; set; }
+        public string Ingredients { get; set; }
+        public string Instructions { get; set; }
 
         public Recipe(string name, string ingredients, string instructions)
         {

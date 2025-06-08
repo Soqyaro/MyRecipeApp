@@ -17,63 +17,58 @@ namespace MyRecipeApp
             recipes = new List<Recipe>();
         }
 
-        // метод для добавления рецепта в список
-        public void AddRecipe(Recipe recipe)
+        public void AddRecipe(Recipe recipe)//метод для добавления рецепта в список
         {
-            recipes.Add(recipe); // добавляем новый рецепт в список
+            recipes.Add(recipe);//добавляем новый рецепт в список
         }
 
-        //Метод для удаления рецепта из списка
-        public void RemoveRecipe(Recipe recipe)
+        
+        public void RemoveRecipe(Recipe recipe)//метод для удаления рецепта из списка
         {
-            recipes.Remove(recipe); // удаляем рецепт из списка
+            recipes.Remove(recipe);//удаляем рецепт из списка
         }
 
-        // метод для получения всех рецептов
-        public List<Recipe> GetAllRecipes()
+        
+        public List<Recipe> GetAllRecipes()//метод для получения всех рецептов
         {
-            return recipes; // возвращаем ссылку на список рецептов
+            return recipes;//возвращаем ссылку на список рецептов
         }
 
-        //Метод для сохранения всех рецептов в текстовый файл
-        public void SaveToFile(string filePath)
+        
+        public void SaveToFile(string filePath)//метод для сохранения всех рецептов в .txt файл
         {
-            //Открываем файл на запись
-            using (StreamWriter sw = new StreamWriter(filePath))
+            //открываем файл на запись
+            using (StreamWriter sw = new StreamWriter(filePath))//автозакроется
             {
-                // Записываем каждый рецепт форматируя по |,  "Название|Ингредиенты|Инструкция"
                 foreach (Recipe recipe in recipes)
                 {
-                    // Формирование строки: поля разделены символом '|'
+                    //формирование строки с разделиелем
                     string line = recipe.Name + "|" + recipe.Ingredients + "|" + recipe.Instructions;
-                    sw.WriteLine(line); // записываем строку в файл
+                    sw.WriteLine(line); //записываем строку в файл
                 }
-            } //файл автоматически закрывается после выхода из блока using
+            } 
         }
 
-        //Метод для загрузки рецептов из текстового файла
-        public void LoadFromFile(string filePath)
+        public void LoadFromFile(string filePath)//метод для загрузки рецептов из текстового файла
         {
-            // Открываем файл на чтение
             using (StreamReader sr = new StreamReader(filePath))
             {
-                recipes.Clear(); // очищаем текущий список рецептов перед загрузкой
+                recipes.Clear(); //очищаем текущий список перед загрузкой
                 string line;
-                // считываем файл построчно
+                //считываем файл построчно
                 while ((line = sr.ReadLine()) != null)
                 {
-                    // Разбиваем строку по символу | на части
                     string[] parts = line.Split('|');
-                    // Ожидаем, что строка имеет три части: название, ингредиенты, инструкция
-                    if (parts.Length >= 3)
+                    
+                    if (parts.Length >= 3)//условие 3 частей
                     {
-                        // Создаем новый объект Recipe и добавляем в список
+                        //делаем новый объект Recipe, добавляем в список
                         Recipe recipe = new Recipe(parts[0], parts[1], parts[2]);
                         recipes.Add(recipe);
                     }
-                    // Если формат строки некорректен (меньше 3 частей), то такую строку пропускаем
+                    //строка не учитыве
                 }
-            } // файл автоматически закрывается
+            } 
         }
     }
 
