@@ -11,4 +11,4 @@
 ## Запуск проекта
 1. Клонировать репозиторий:
    ```bash
-   git clone https://github.com/ваш-логин/RecipeBook.git
+   https://github.com/Soqyaro/MyRecipeApp.git
