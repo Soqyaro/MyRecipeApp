@@ -34,7 +34,7 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonLoad = new System.Windows.Forms.Button();
             this.labelHeaderText = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.ReftegLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listBoxRecipes
@@ -44,8 +44,9 @@
             this.listBoxRecipes.ItemHeight = 40;
             this.listBoxRecipes.Location = new System.Drawing.Point(12, 78);
             this.listBoxRecipes.Name = "listBoxRecipes";
-            this.listBoxRecipes.Size = new System.Drawing.Size(776, 284);
+            this.listBoxRecipes.Size = new System.Drawing.Size(780, 284);
             this.listBoxRecipes.TabIndex = 0;
+            this.listBoxRecipes.SelectedIndexChanged += new System.EventHandler(this.listBoxRecipes_SelectedIndexChanged);
             this.listBoxRecipes.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxRecipes_MouseDoubleClick);
             // 
             // buttonAdd
@@ -53,7 +54,7 @@
             this.buttonAdd.Font = new System.Drawing.Font("Comic Sans MS", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonAdd.Location = new System.Drawing.Point(441, 368);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(347, 32);
+            this.buttonAdd.Size = new System.Drawing.Size(351, 32);
             this.buttonAdd.TabIndex = 1;
             this.buttonAdd.Text = " Добавить рецепт";
             this.buttonAdd.UseVisualStyleBackColor = true;
@@ -61,10 +62,11 @@
             // 
             // buttonRemove
             // 
+            this.buttonRemove.Enabled = false;
             this.buttonRemove.Font = new System.Drawing.Font("Comic Sans MS", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonRemove.Location = new System.Drawing.Point(441, 406);
             this.buttonRemove.Name = "buttonRemove";
-            this.buttonRemove.Size = new System.Drawing.Size(347, 32);
+            this.buttonRemove.Size = new System.Drawing.Size(351, 32);
             this.buttonRemove.TabIndex = 2;
             this.buttonRemove.Text = "Удаление выделенного рецепта";
             this.buttonRemove.UseVisualStyleBackColor = true;
@@ -72,6 +74,7 @@
             // 
             // buttonSave
             // 
+            this.buttonSave.Enabled = false;
             this.buttonSave.Font = new System.Drawing.Font("Comic Sans MS", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonSave.Location = new System.Drawing.Point(12, 368);
             this.buttonSave.Name = "buttonSave";
@@ -102,25 +105,27 @@
             this.labelHeaderText.TabIndex = 5;
             this.labelHeaderText.Text = "Список рецептов";
             // 
-            // label1
+            // ReftegLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.LightCoral;
-            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(709, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 19);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "©SomiSoya";
+            this.ReftegLabel.AutoSize = true;
+            this.ReftegLabel.BackColor = System.Drawing.Color.LightCoral;
+            this.ReftegLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ReftegLabel.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ReftegLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ReftegLabel.Location = new System.Drawing.Point(709, 9);
+            this.ReftegLabel.Name = "ReftegLabel";
+            this.ReftegLabel.Size = new System.Drawing.Size(79, 19);
+            this.ReftegLabel.TabIndex = 9;
+            this.ReftegLabel.Text = "©SomiSoya";
+            this.ReftegLabel.Click += new System.EventHandler(this.ReftegLabel_Click);
             // 
             // Mainrec
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCoral;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(804, 451);
+            this.Controls.Add(this.ReftegLabel);
             this.Controls.Add(this.labelHeaderText);
             this.Controls.Add(this.buttonLoad);
             this.Controls.Add(this.buttonSave);
@@ -142,7 +147,7 @@
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonLoad;
         private System.Windows.Forms.Label labelHeaderText;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label ReftegLabel;
     }
 }
 

@@ -43,7 +43,7 @@
             // 
             this.labelNameHeader.AutoSize = true;
             this.labelNameHeader.Font = new System.Drawing.Font("Comic Sans MS", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelNameHeader.Location = new System.Drawing.Point(44, 48);
+            this.labelNameHeader.Location = new System.Drawing.Point(45, 68);
             this.labelNameHeader.Name = "labelNameHeader";
             this.labelNameHeader.Size = new System.Drawing.Size(149, 40);
             this.labelNameHeader.TabIndex = 0;
@@ -51,16 +51,17 @@
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(46, 121);
+            this.textBoxName.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxName.Location = new System.Drawing.Point(32, 152);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(147, 20);
+            this.textBoxName.Size = new System.Drawing.Size(198, 45);
             this.textBoxName.TabIndex = 1;
             // 
             // labelIngredientsHeader
             // 
             this.labelIngredientsHeader.AutoSize = true;
             this.labelIngredientsHeader.Font = new System.Drawing.Font("Comic Sans MS", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelIngredientsHeader.Location = new System.Drawing.Point(224, 48);
+            this.labelIngredientsHeader.Location = new System.Drawing.Point(282, 68);
             this.labelIngredientsHeader.Name = "labelIngredientsHeader";
             this.labelIngredientsHeader.Size = new System.Drawing.Size(205, 40);
             this.labelIngredientsHeader.TabIndex = 2;
@@ -70,7 +71,7 @@
             // 
             this.labelInstructionHeader.AutoSize = true;
             this.labelInstructionHeader.Font = new System.Drawing.Font("Comic Sans MS", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelInstructionHeader.Location = new System.Drawing.Point(447, 48);
+            this.labelInstructionHeader.Location = new System.Drawing.Point(586, 68);
             this.labelInstructionHeader.Name = "labelInstructionHeader";
             this.labelInstructionHeader.Size = new System.Drawing.Size(181, 40);
             this.labelInstructionHeader.TabIndex = 3;
@@ -78,27 +79,28 @@
             // 
             // textBoxIngredients
             // 
-            this.textBoxIngredients.Location = new System.Drawing.Point(255, 121);
+            this.textBoxIngredients.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxIngredients.Location = new System.Drawing.Point(289, 152);
             this.textBoxIngredients.Multiline = true;
             this.textBoxIngredients.Name = "textBoxIngredients";
-            this.textBoxIngredients.Size = new System.Drawing.Size(147, 20);
+            this.textBoxIngredients.Size = new System.Drawing.Size(198, 45);
             this.textBoxIngredients.TabIndex = 4;
             // 
             // textBoxInstructions
             // 
-            this.textBoxInstructions.Location = new System.Drawing.Point(465, 121);
+            this.textBoxInstructions.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxInstructions.Location = new System.Drawing.Point(569, 152);
             this.textBoxInstructions.Multiline = true;
             this.textBoxInstructions.Name = "textBoxInstructions";
-            this.textBoxInstructions.Size = new System.Drawing.Size(147, 20);
+            this.textBoxInstructions.Size = new System.Drawing.Size(198, 45);
             this.textBoxInstructions.TabIndex = 5;
             // 
             // buttonOK
             // 
-            this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonOK.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonOK.Location = new System.Drawing.Point(42, 250);
+            this.buttonOK.Font = new System.Drawing.Font("Comic Sans MS", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonOK.Location = new System.Drawing.Point(32, 384);
             this.buttonOK.Name = "buttonOK";
-            this.buttonOK.Size = new System.Drawing.Size(220, 55);
+            this.buttonOK.Size = new System.Drawing.Size(314, 55);
             this.buttonOK.TabIndex = 6;
             this.buttonOK.Text = "ОК";
             this.buttonOK.UseVisualStyleBackColor = true;
@@ -107,10 +109,10 @@
             // buttonCancel
             // 
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonCancel.Location = new System.Drawing.Point(388, 250);
+            this.buttonCancel.Font = new System.Drawing.Font("Comic Sans MS", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonCancel.Location = new System.Drawing.Point(453, 384);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(220, 55);
+            this.buttonCancel.Size = new System.Drawing.Size(314, 55);
             this.buttonCancel.TabIndex = 7;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -121,7 +123,7 @@
             this.label1.BackColor = System.Drawing.Color.LightCoral;
             this.label1.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(569, 9);
+            this.label1.Location = new System.Drawing.Point(713, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 19);
             this.label1.TabIndex = 8;
@@ -132,7 +134,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCoral;
-            this.ClientSize = new System.Drawing.Size(660, 352);
+            this.ClientSize = new System.Drawing.Size(804, 451);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);

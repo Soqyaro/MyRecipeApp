@@ -24,9 +24,16 @@ namespace MyRecipeApp
         private void buttonOK_Click(object sender, EventArgs e)
         {
             //считываем введенные пользователем данные из полей
-            string name = textBoxName.Text;
-            string ingredients = textBoxIngredients.Text;
-            string instructions = textBoxInstructions.Text;
+            string name = textBoxName.Text.Trim();//убираем пробелы по бокам с Trim()
+            string ingredients = textBoxIngredients.Text.Trim();//если они есть
+            string instructions = textBoxInstructions.Text.Trim();
+
+            //проверка на пустоту полей при добавлении нового рецепта
+            if(string.IsNullOrEmpty(name) || string.IsNullOrEmpty(ingredients) || string.IsNullOrEmpty(instructions))
+            {
+                MessageBox.Show("Пожалуйста, заполните все поля перед добавлением нового рецепта.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; //выход из обработчика, рецепт не добавится, форма не закроется
+            }
 
             NewRecipe = new Recipe(name, ingredients, instructions);
 

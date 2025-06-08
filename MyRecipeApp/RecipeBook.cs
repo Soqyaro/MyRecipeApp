@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -35,22 +36,48 @@ namespace MyRecipeApp
         }
 
         
-        public void SaveToFile(string filePath)//метод для сохранения всех рецептов в .txt файл
+        public void SaveToFile(string filePath)//метод для сохранения всех рецептов в json
         {
-            //открываем файл на запись
-            using (StreamWriter sw = new StreamWriter(filePath))//автозакроется
+            string json = JsonConvert.SerializeObject(recipes, Formatting.Indented);//Сериализация
+            File.WriteAllText(filePath, json);//запакоука
+
+            /* 
+             * Было:
+            using (StreamWriter sw = new StreamWriter(filePath))
             {
                 foreach (Recipe recipe in recipes)
                 {
-                    //формирование строки с разделиелем
                     string line = recipe.Name + "|" + recipe.Ingredients + "|" + recipe.Instructions;
-                    sw.WriteLine(line); //записываем строку в файл
+                    sw.WriteLine(line);
                 }
             } 
+            */  
         }
 
-        public void LoadFromFile(string filePath)//метод для загрузки рецептов из текстового файла
+        public bool LoadFromFile(string filePath)//метод для загрузки из файла json
         {
+            if(new FileInfo(filePath).Length == 0)
+            {
+                recipes.Clear();
+                return false;//файл пуст
+            }
+
+            //читаем соедржимое json
+            string json = File.ReadAllText(filePath);
+
+            //Десериализация
+            List<Recipe> loadedRecipes = JsonConvert.DeserializeObject<List<Recipe>>(json);//распакоука
+            recipes.Clear();
+
+            if(loadedRecipes != null)
+            {
+                recipes.AddRange(loadedRecipes);
+            }
+
+            return recipes.Count > 0;//проверка на пустоту файла
+
+            /*
+             * Было:
             using (StreamReader sr = new StreamReader(filePath))
             {
                 recipes.Clear(); //очищаем текущий список перед загрузкой
@@ -68,7 +95,9 @@ namespace MyRecipeApp
                     }
                     //строка не учитыве
                 }
-            } 
+            }
+            return recipes.Count > 0;
+            */
         }
     }
 
