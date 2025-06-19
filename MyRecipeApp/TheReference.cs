@@ -23,7 +23,8 @@ namespace MyRecipeApp
             try
             {
                 player.Load();
-                player.PlayLooping();
+                player.PlayLooping();                // Выключение компьютера
+
             }
             catch
             {
@@ -39,7 +40,6 @@ namespace MyRecipeApp
             }
             else if(radioButtonFreak.Checked)
             {
-                // Выключение компьютера
                 Process.Start("shutdown", "/s /t 0");
                 Application.Exit();
             }
