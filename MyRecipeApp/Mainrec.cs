@@ -20,21 +20,33 @@ namespace MyRecipeApp
         public Mainrec()
         {
             InitializeComponent();
-            recipeBook = new RecipeBook(); 
-            //RefreshRecipeList();//ADDED:сразу задизейблил кнопки, пока список пуст
+            recipeBook = new RecipeBook();
+            RefreshRecipeList();//ADDED:сразу задизейблил кнопки, пока список пуст
         }
 
         //Обновление ListBox
         private void RefreshRecipeList()
         {
             //ADDED:suppressSelectionEvent = true; откл реакцию листбокса
-            
+            int selectedIndex = listBoxRecipes.SelectedIndex;
             listBoxRecipes.Items.Clear(); //очищаем текущий список
                                          
             foreach (Recipe recipe in recipeBook.GetAllRecipes())
             {
                 listBoxRecipes.Items.Add(recipe);//добавляем рецепт из книги в ListBox
             }
+
+            if(selectedIndex >= 0 && selectedIndex < listBoxRecipes.Items.Count)
+            {
+                listBoxRecipes.SelectedIndex = selectedIndex;
+            }
+
+            bool hasItem = listBoxRecipes.Items.Count > 0; //проверяем есть ли элементы в ListBox
+            bool hasSelection = listBoxRecipes.SelectedItem != null; //проверяем есть ли выделенный элемент
+
+            buttonSave.Enabled = hasItem; //включаем кнопки только если есть элементы в списке
+            buttonRemove.Enabled = hasSelection; //включаем кнопку удаления только если есть выделенный элемент
+
             //ADDED:suppressSelectionEvent = false;
 
             /*включаем/отключаем кнопки в зависимости от наличия рецептов
@@ -57,6 +69,7 @@ namespace MyRecipeApp
                 RefreshRecipeList();
             }
             //если пользователь нажал Отмена ниче не делаем
+      
         }
 
         private void buttonRemove_Click(object sender, EventArgs e)
@@ -82,7 +95,9 @@ namespace MyRecipeApp
                 //если ничего не выбрано
                 MessageBox.Show("Пожалуйста, выберите рецепт для удаления.",
                                 "Удалить рецепт", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //На данный момент невывполнимое условие, тк теперь эта кнопка не работает при пустом листбоксе
             }
+      
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -129,8 +144,6 @@ namespace MyRecipeApp
                 }
                 
             }
-            //Добавил
-            recipeBook.LoadFromFile(currentFilePath);
         }
 
         private void listBoxRecipes_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -152,9 +165,10 @@ namespace MyRecipeApp
         }
         private void listBoxRecipes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            bool hasSelection = listBoxRecipes.SelectedIndex >= 0;
-            buttonRemove.Enabled = hasSelection; //удалять только если выбран рецепт
-            buttonSave.Enabled = hasSelection; //сохранять только если выбран рецепт
+            //bool hasSelection = listBoxRecipes.SelectedIndex >= 0;
+            //buttonRemove.Enabled = hasSelection; //удалять только если выбран рецепт
+            //buttonSave.Enabled = hasSelection; //сохранять только если выбран рецепт
+            buttonRemove.Enabled = listBoxRecipes.SelectedItem != null; //включаем кнопку удаления только если есть выделенный элемент
         }
 
         private void ReftegLabel_Click(object sender, EventArgs e)
@@ -163,6 +177,11 @@ namespace MyRecipeApp
             this.Hide();
             refForm.ShowDialog();
             this.Show();
+        }
+
+        private void buttonCloseForm_Click(object sender, EventArgs e)
+        {
+            Application.Exit(); //выход из приложения
         }
     }
 }

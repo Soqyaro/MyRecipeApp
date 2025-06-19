@@ -35,6 +35,7 @@
             this.buttonLoad = new System.Windows.Forms.Button();
             this.labelHeaderText = new System.Windows.Forms.Label();
             this.ReftegLabel = new System.Windows.Forms.Label();
+            this.buttonCloseForm = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBoxRecipes
@@ -99,7 +100,7 @@
             // 
             this.labelHeaderText.AutoSize = true;
             this.labelHeaderText.Font = new System.Drawing.Font("Comic Sans MS", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelHeaderText.Location = new System.Drawing.Point(182, 8);
+            this.labelHeaderText.Location = new System.Drawing.Point(196, 8);
             this.labelHeaderText.Name = "labelHeaderText";
             this.labelHeaderText.Size = new System.Drawing.Size(435, 67);
             this.labelHeaderText.TabIndex = 5;
@@ -108,7 +109,7 @@
             // ReftegLabel
             // 
             this.ReftegLabel.AutoSize = true;
-            this.ReftegLabel.BackColor = System.Drawing.Color.LightCoral;
+            this.ReftegLabel.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ReftegLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ReftegLabel.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ReftegLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -119,12 +120,24 @@
             this.ReftegLabel.Text = "©SomiSoya";
             this.ReftegLabel.Click += new System.EventHandler(this.ReftegLabel_Click);
             // 
+            // buttonCloseForm
+            // 
+            this.buttonCloseForm.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonCloseForm.Location = new System.Drawing.Point(13, 13);
+            this.buttonCloseForm.Name = "buttonCloseForm";
+            this.buttonCloseForm.Size = new System.Drawing.Size(132, 41);
+            this.buttonCloseForm.TabIndex = 10;
+            this.buttonCloseForm.Text = "Выйти";
+            this.buttonCloseForm.UseVisualStyleBackColor = true;
+            this.buttonCloseForm.Click += new System.EventHandler(this.buttonCloseForm_Click);
+            // 
             // Mainrec
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightCoral;
+            this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(804, 451);
+            this.Controls.Add(this.buttonCloseForm);
             this.Controls.Add(this.ReftegLabel);
             this.Controls.Add(this.labelHeaderText);
             this.Controls.Add(this.buttonLoad);
@@ -132,7 +145,10 @@
             this.Controls.Add(this.buttonRemove);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.listBoxRecipes);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Mainrec";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Список ваших рецептов";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -148,6 +164,7 @@
         private System.Windows.Forms.Button buttonLoad;
         private System.Windows.Forms.Label labelHeaderText;
         private System.Windows.Forms.Label ReftegLabel;
+        private System.Windows.Forms.Button buttonCloseForm;
     }
 }
 

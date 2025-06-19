@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,6 +39,8 @@ namespace MyRecipeApp
             }
             else if(radioButtonFreak.Checked)
             {
+                // Выключение компьютера
+                Process.Start("shutdown", "/s /t 0");
                 Application.Exit();
             }
             else

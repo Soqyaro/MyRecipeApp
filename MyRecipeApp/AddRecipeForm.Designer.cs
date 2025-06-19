@@ -37,31 +37,32 @@
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.labelHeaderForAdd = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelNameHeader
             // 
             this.labelNameHeader.AutoSize = true;
-            this.labelNameHeader.Font = new System.Drawing.Font("Comic Sans MS", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelNameHeader.Location = new System.Drawing.Point(45, 68);
+            this.labelNameHeader.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelNameHeader.Location = new System.Drawing.Point(39, 122);
             this.labelNameHeader.Name = "labelNameHeader";
-            this.labelNameHeader.Size = new System.Drawing.Size(149, 40);
+            this.labelNameHeader.Size = new System.Drawing.Size(167, 45);
             this.labelNameHeader.TabIndex = 0;
             this.labelNameHeader.Text = "Название";
             // 
             // textBoxName
             // 
             this.textBoxName.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxName.Location = new System.Drawing.Point(32, 152);
+            this.textBoxName.Location = new System.Drawing.Point(223, 122);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(198, 45);
+            this.textBoxName.Size = new System.Drawing.Size(544, 45);
             this.textBoxName.TabIndex = 1;
             // 
             // labelIngredientsHeader
             // 
             this.labelIngredientsHeader.AutoSize = true;
             this.labelIngredientsHeader.Font = new System.Drawing.Font("Comic Sans MS", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelIngredientsHeader.Location = new System.Drawing.Point(282, 68);
+            this.labelIngredientsHeader.Location = new System.Drawing.Point(12, 208);
             this.labelIngredientsHeader.Name = "labelIngredientsHeader";
             this.labelIngredientsHeader.Size = new System.Drawing.Size(205, 40);
             this.labelIngredientsHeader.TabIndex = 2;
@@ -71,7 +72,7 @@
             // 
             this.labelInstructionHeader.AutoSize = true;
             this.labelInstructionHeader.Font = new System.Drawing.Font("Comic Sans MS", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelInstructionHeader.Location = new System.Drawing.Point(586, 68);
+            this.labelInstructionHeader.Location = new System.Drawing.Point(25, 296);
             this.labelInstructionHeader.Name = "labelInstructionHeader";
             this.labelInstructionHeader.Size = new System.Drawing.Size(181, 40);
             this.labelInstructionHeader.TabIndex = 3;
@@ -80,19 +81,19 @@
             // textBoxIngredients
             // 
             this.textBoxIngredients.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxIngredients.Location = new System.Drawing.Point(289, 152);
+            this.textBoxIngredients.Location = new System.Drawing.Point(223, 208);
             this.textBoxIngredients.Multiline = true;
             this.textBoxIngredients.Name = "textBoxIngredients";
-            this.textBoxIngredients.Size = new System.Drawing.Size(198, 45);
+            this.textBoxIngredients.Size = new System.Drawing.Size(544, 45);
             this.textBoxIngredients.TabIndex = 4;
             // 
             // textBoxInstructions
             // 
             this.textBoxInstructions.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxInstructions.Location = new System.Drawing.Point(569, 152);
+            this.textBoxInstructions.Location = new System.Drawing.Point(223, 296);
             this.textBoxInstructions.Multiline = true;
             this.textBoxInstructions.Name = "textBoxInstructions";
-            this.textBoxInstructions.Size = new System.Drawing.Size(198, 45);
+            this.textBoxInstructions.Size = new System.Drawing.Size(544, 45);
             this.textBoxInstructions.TabIndex = 5;
             // 
             // buttonOK
@@ -120,7 +121,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.LightCoral;
+            this.label1.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.label1.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(713, 9);
@@ -129,12 +130,23 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "©SomiSoya";
             // 
+            // labelHeaderForAdd
+            // 
+            this.labelHeaderForAdd.AutoSize = true;
+            this.labelHeaderForAdd.Font = new System.Drawing.Font("Comic Sans MS", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelHeaderForAdd.Location = new System.Drawing.Point(88, 38);
+            this.labelHeaderForAdd.Name = "labelHeaderForAdd";
+            this.labelHeaderForAdd.Size = new System.Drawing.Size(631, 51);
+            this.labelHeaderForAdd.TabIndex = 9;
+            this.labelHeaderForAdd.Text = "Введите информацию о рецепте";
+            // 
             // AddRecipeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightCoral;
+            this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(804, 451);
+            this.Controls.Add(this.labelHeaderForAdd);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
@@ -144,7 +156,10 @@
             this.Controls.Add(this.labelIngredientsHeader);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.labelNameHeader);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "AddRecipeForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавление нового рецепта";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -162,5 +177,6 @@
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelHeaderForAdd;
     }
 }
