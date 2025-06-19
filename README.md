@@ -41,7 +41,7 @@ MyRecipeApp/
 1. Клонируйте репозиторий:
 
    ```bash
-   git clone https://github.com/Soyiaro/MyRecipeApp.git
+   git clone https://github.com/Soqyaro/MyRecipeApp.git
    ```
 2. Откройте `MyRecipeApp.sln` в Visual Studio 2019 или новее.
 3. Убедитесь, что в папке `Assets` находятся `background.jpg` и `Max.wav`, а в `Resources` JSON-файл с тестовыми данными.
